@@ -16,9 +16,16 @@ class DataFetcher extends React.Component{
     }
 
     render(){
-        console.log("State: ", this.state.data)
+        console.log("State: ", this.state)
         return (
-            <DataCard data={this.state.data} />
+            <div>
+                {this.state.data.map(e =>(
+                    
+                    <DataCard data={e} />
+                ))}
+            </div>
+            
+            
         )
     }
 }
