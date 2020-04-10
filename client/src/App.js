@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import DataFetcher from "./Components/DataFetcher"
+import {useColours} from "./Hooks/useColours"
+
 import './App.css';
 
 function App() {
+  const {theme, toggleTheme} = useColours();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div 
+    style={{
+      background: theme === 'dark' ? '#000' : '#fff',
+      color: theme === 'dark' ? '#fff' : '#000',
+    }}
+    className="App"
+    >
+      <h1>List of Women's World Cup Ranked by Interest</h1>
+      <button type="button" onClick={toggleTheme}>
+					Switch theme
+			</button>
+      <DataFetcher  />
     </div>
   );
 }
